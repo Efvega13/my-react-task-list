@@ -38,16 +38,38 @@ h1 {
 
 .contenedor{
   display: flex;
-  justify-content: space-between;
-  align-items: start;  
-  
+  align-items: center;
+} 
+
+.contenedor input[type="checkbox"] {
+  margin-right: 20px;
 }
 
-.task-with-line {
+.Tarea {
+  flex-grow: 1;
+  margin-right: 1%;
+}
+
+.Tarea-tachada {
   text-decoration: line-through;
 }
-.task-without-line {
-  text-decoration: none;
+
+.contenedor button {
+  background-color: #4464f7;
+  color: #F2E9E4;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.contenedor button:hover {
+  background-color: #4A4E69;
+}
+
+.borrar-contenedor {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 button {
