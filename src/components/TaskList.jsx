@@ -8,7 +8,7 @@ import {
   Text,
   Textarea,
   VStack,
-} from '@chakra-ui/react'; // Importa componentes de Chakra UI
+} from '@chakra-ui/react'; 
 
 function TaskList() {
   const { tasks, createTask, deleteTask, updateTask, updateTaskStatus } =
@@ -68,9 +68,11 @@ function TaskList() {
           placeholder='Task Description (optional)'
           value={taskDescription}
           onChange={handleDescriptionChange}
-          resize="none" // Evita que el textarea sea redimensionable
+          resize="none" 
         />
-        <Button colorScheme="teal" size="sm">
+        <Button
+         colorScheme="teal" size="sm"
+         onClick={addTask}>
           Add
         </Button>
         {error && <Text color="red.500">{error}</Text>}
@@ -106,4 +108,3 @@ function TaskList() {
 }
 
 export default TaskList;
-
