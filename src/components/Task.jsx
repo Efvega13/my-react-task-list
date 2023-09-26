@@ -92,6 +92,7 @@ function Task({ name, description, status, onStatusChange, onDelete, onUpdate })
           <Button
             onClick={handleDelete}
             colorScheme="red" 
+            size="sm" 
           >
             Borrar
           </Button>
