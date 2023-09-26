@@ -1,0 +1,28 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+body{
+
+    background-color: #59f1dd;
+}
+
+
+.Add {
+
+    background-color: black;
+    color: #fff;
+}
+
+.b-editar {
+    
+    background-color: black;
+    color: #fff;
+}
+.b-borrar {
+
+    background-color: black;
+    color: #fff;
+}

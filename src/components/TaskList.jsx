@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import useAdminTarea from '../hooks/useAdminTarea';
 import Task from './Task';
+import {
+  Box,
+  Button,
+  Input,
+  Text,
+  Textarea,
+  VStack,
+} from '@chakra-ui/react'; // Importa componentes de Chakra UI
 
 function TaskList() {
   const { tasks, createTask, deleteTask, updateTask, updateTaskStatus } =
@@ -48,22 +56,24 @@ function TaskList() {
   };
 
   return (
-    <>
+    <VStack align="stretch" spacing={4}>
       <form onSubmit={addTask}>
-        <input
+        <Input
           type='text'
           placeholder='Task Name'
           value={taskName}
           onChange={handleInputChange}
         />
-        <input
-          type='text'
+        <Textarea
           placeholder='Task Description (optional)'
           value={taskDescription}
           onChange={handleDescriptionChange}
+          resize="none" // Evita que el textarea sea redimensionable
         />
-        <button>Add</button>
-        {error && <p className='error'>{error}</p>}
+        <Button colorScheme="teal" size="sm">
+          Add
+        </Button>
+        {error && <Text color="red.500">{error}</Text>}
       </form>
       <ul>
         {tasks.map((task, index) => (
@@ -81,13 +91,17 @@ function TaskList() {
           </li>
         ))}
       </ul>
-      <>
-        <p>You have {pendingTasks} pending tasks.</p>
-      </>
-      <div className='borrar-contenedor'>
-        <button onClick={handleClearAll}>Clean completed tasks</button>
-      </div>
-    </>
+      {pendingTasks > 0 && (
+        <Text>
+          You have {pendingTasks} pending tasks.
+        </Text>
+      )}
+      <Box>
+        <Button colorScheme="red" size="sm" onClick={handleClearAll}>
+          Clean completed tasks
+        </Button>
+      </Box>
+    </VStack>
   );
 }
 

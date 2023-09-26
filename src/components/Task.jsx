@@ -1,4 +1,11 @@
 import { useState } from 'react';
+import {
+  Box,
+  Checkbox,
+  Input,
+  Button,
+  Textarea,
+} from '@chakra-ui/react'; 
 
 function Task({ name, description, status, onStatusChange, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -6,9 +13,7 @@ function Task({ name, description, status, onStatusChange, onDelete, onUpdate })
   const [updatedTaskDescription, setUpdatedTaskDescription] = useState(description);
 
   const handleCheckboxChange = () => onStatusChange();
-
   const handleDelete = () => onDelete();
-
   const handleEditClick = () => setIsEditing(true);
 
   const handleCancelClick = () => {
@@ -24,32 +29,28 @@ function Task({ name, description, status, onStatusChange, onDelete, onUpdate })
     }
   };
 
-  const handleInputChange = (e) => {
-    setUpdatedTaskName(e.currentTarget.value);
-  };
-
-  const handleDescriptionChange = (e) => {
-    setUpdatedTaskDescription(e.currentTarget.value);
-  };
+  const handleInputChange = (e) => setUpdatedTaskName(e.currentTarget.value);
+  const handleDescriptionChange = (e) => setUpdatedTaskDescription(e.currentTarget.value);
 
   return (
-    <div className='contenedor'>
-      <input
-        type='checkbox'
-        checked={status}
+    <Box p={3} borderWidth="1px" borderRadius="md">
+      <Checkbox
+        isChecked={status}
         onChange={handleCheckboxChange}
+        mr={2}
       />
       {isEditing ? (
         <>
-          <input
+          <Input
             type='text'
             value={updatedTaskName}
             onChange={handleInputChange}
+            variant="unstyled" 
           />
-          <input
-            type='text'
+          <Textarea
             value={updatedTaskDescription}
             onChange={handleDescriptionChange}
+            variant="unstyled" 
           />
         </>
       ) : (
@@ -62,16 +63,41 @@ function Task({ name, description, status, onStatusChange, onDelete, onUpdate })
       )}
       {isEditing ? (
         <>
-          <button onClick={handleSaveClick}>Guardar</button>
-          <button onClick={handleCancelClick}>Cancelar</button>
+          <Button
+            onClick={handleSaveClick}
+            colorScheme="blue" 
+            size="sm" 
+            mr={2}
+          >
+            Guardar
+          </Button>
+          <Button
+            onClick={handleCancelClick}
+            colorScheme="gray" 
+            size="sm" 
+          >
+            Cancelar
+          </Button>
         </>
       ) : (
         <>
-          <button onClick={handleEditClick}>Editar</button>
-          <button onClick={handleDelete}>Borrar</button>
+          <Button
+            onClick={handleEditClick}
+            colorScheme="teal" 
+            size="sm" 
+            mr={2}
+          >
+            Editar
+          </Button>
+          <Button
+            onClick={handleDelete}
+            colorScheme="red" 
+          >
+            Borrar
+          </Button>
         </>
       )}
-    </div>
+    </Box>
   );
 }
 

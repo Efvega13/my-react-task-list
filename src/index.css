@@ -14,10 +14,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+ul, ol {
+  list-style: none;
+}
+
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 700;
+  color: #000000;
   text-decoration: inherit;
+  font-size: 30px;
 }
 a:hover {
   color: #535bf2;
@@ -55,7 +60,7 @@ h1 {
 }
 
 .contenedor button {
-  background-color: #4464f7;
+  background-color: #000000;
   color: #F2E9E4;
   border: none;
   padding: 5px 10px;
